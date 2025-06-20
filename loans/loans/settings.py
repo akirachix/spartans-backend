@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'loan_repayments',
     # 'farmer',
     
+
 ]
 
 MIDDLEWARE = [
