@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+
 class Farmer(models.Model):
     farmer_id = models.AutoField(primary_key=True)
     join_date = models.DateTimeField()
@@ -11,3 +12,8 @@ class Farmer(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
         return f"Farmer {self.farmer_id} - {self.email}"
+
+
+
+
+
