@@ -2,6 +2,13 @@
 env/
 __pycache__/
 *.pyc
+
 loansenv/
 __pycache__/
+db.sqlite3
+loanenv/
+__pycache__/
+loanenv/
+__pycache__/
+*.pyc/
 db.sqlite3
