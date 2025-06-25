@@ -16,6 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 <<<<<<< HEAD
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',include("bankpartners.urls")),
+=======
+<<<<<<< HEAD
 from django.urls import path, include
 
 urlpatterns = [
@@ -31,4 +38,5 @@ urlpatterns = [
     path('farmerLoan/',include('farmerLoan.urls')),
    
 >>>>>>> 0deec2764997999f18229389ea37de61606ba027
+>>>>>>> 4f0891618da362996c36835b56698068c12abe0c
 ]
