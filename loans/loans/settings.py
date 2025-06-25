@@ -41,21 +41,12 @@ INSTALLED_APPS = [
     'loan_repayments',
     'farmer',
     'cooperative',
-<<<<<<< HEAD
     'farmerLoan',
     'rest_framework',
-=======
     'document',
-    'farmerLoan',
     'farmerWealth',
-    'document',
-    'cooperative',
-     'farmer',
-     'farmerWealth',
-     'farmerLoan',
-     'rest_framework',
 
->>>>>>> 4f0891618da362996c36835b56698068c12abe0c
+ 
     
 
 ]
