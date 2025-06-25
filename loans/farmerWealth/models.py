@@ -1,4 +1,5 @@
 from django.db import models
+from farmer.models import Farmer
 
 # Create your models here.
 from farmer.models import Farmer
