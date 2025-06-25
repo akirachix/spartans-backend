@@ -4,7 +4,7 @@ from django.db import models
 
 class Farmer(models.Model):
     farmer_id = models.AutoField(primary_key=True)
-    join_date = models.DateTimeField()
+    join_date = models.DateField()
     status = models.CharField(max_length=20)
     email = models.EmailField(max_length=20)
     phone_number = models.CharField(max_length=20)
