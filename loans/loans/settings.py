@@ -39,14 +39,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bankpartners',
     'loan_repayments',
+    'farmer',
+    'cooperative',
+    'document',
+    'farmerLoan',
+    'farmerWealth',
     'document',
     'cooperative',
-    
-      
      'farmer',
      'farmerWealth',
      'farmerLoan',
      'rest_framework',
+
     
 
 ]

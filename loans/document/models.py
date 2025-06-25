@@ -1,5 +1,9 @@
 from django.db import models
 from farmer.models import Farmer
+<<<<<<< HEAD
+
+=======
+>>>>>>> 0deec2764997999f18229389ea37de61606ba027
 # Create your models here.
 class Document(models.Model):
     document_id = models.AutoField(primary_key=True)
