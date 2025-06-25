@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Farmer
+from .serializers import FarmerSerializer
+class FarmerViewSet(viewsets.ModelViewSet):
+   queryset = Farmer.objects.all()
+   serializer_class = FarmerSerializer
+=======
 # from django.shortcuts import render,redirect
 
 # # Create your views here.
@@ -22,3 +31,4 @@
 #     return render(request, 'farmer_form.html', {'form': form})
 
 
+>>>>>>> 912d69cbe90a8446810f79fbccc9ec87649ed5a6
