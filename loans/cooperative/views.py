@@ -1,5 +1,5 @@
 from django.shortcuts import render
-<<<<<<< HEAD
+
 from rest_framework import viewsets
 from .models import Cooperative
 from .serializers import CooperativeSerializer
@@ -8,7 +8,7 @@ from .serializers import CooperativeSerializer
 class CooperativeViewSet(viewsets.ModelViewSet):
     queryset = Cooperative.objects.all()
     serializer_class = CooperativeSerializer
-=======
+
 # from .models import Cooperative, Loan, Document, LoanRepayment, FarmerWealth, CooperativePartnerBank
 # from .forms import (CooperativeForm, LoanForm, DocumentForm, 
 #                     LoanRepaymentForm, FarmerWealthForm, CooperativePartnerBankForm)
@@ -45,4 +45,4 @@ class CooperativeViewSet(viewsets.ModelViewSet):
 #         cooperative.delete()
 #         return redirect('cooperative_list')
 #     return render(request, 'cooperative_confirm_delete.html', {'cooperative': cooperative})
->>>>>>> 0deec2764997999f18229389ea37de61606ba027
+

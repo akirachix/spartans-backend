@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from django.urls import path,include
 from rest_framework.routers import DefaultRouter
 from .views import CooperativeViewSet
@@ -10,7 +10,7 @@ urlpatterns=[
     path("",include(router.urls)),
     
 ]
-=======
+
 # from django.urls import path, include
 # from . import views
 # from rest_framework.routers import DefaultRouter
@@ -29,4 +29,4 @@ urlpatterns=[
     
 # ]
 
->>>>>>> 0deec2764997999f18229389ea37de61606ba027
+
