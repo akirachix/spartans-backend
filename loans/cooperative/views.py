@@ -1,5 +1,4 @@
 from django.shortcuts import render
-<<<<<<< HEAD
 from rest_framework import viewsets
 from .models import Cooperative
 from .serializers import CooperativeSerializer

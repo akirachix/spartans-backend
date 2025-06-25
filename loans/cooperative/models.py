@@ -1,8 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
 class Cooperative(models.Model):
-    user = models.ForeignKey(User, null=True,on_delete=models.PROTECT)
+    # user = models.ForeignKey(User, null=True,on_delete=models.PROTECT)
     officer_id = models.AutoField(primary_key=True)
     officer_name = models.CharField(max_length=40)
     email = models.EmailField(max_length=20)
