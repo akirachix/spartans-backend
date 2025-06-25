@@ -1,11 +1,1 @@
-<<<<<<< HEAD
-*.pyc
-__pycache__/
-=======
-loanenv/
-__pycache__/
-*.pyc/
-db.sqlite3
->>>>>>> 7668f8aa56bd005d349baf056a251514b59208eb
-env/
-__pycache__/
+
