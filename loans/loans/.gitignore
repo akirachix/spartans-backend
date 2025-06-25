@@ -1,4 +1,5 @@
+loanenv/
 loansenv/
 __pycache__/
-*.pyc/
+*.pyc
 db.sqlite3
