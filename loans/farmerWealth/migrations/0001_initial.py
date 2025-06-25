@@ -8,13 +8,9 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-        # ('farmer', '0001_initial'),
-<<<<<<< HEAD
-
-=======
->>>>>>> develops
-    ]
+    # dependencies = [
+    #     # ('farmer', '0001_initial'),
+    # ]
 
     operations = [
         migrations.CreateModel(
