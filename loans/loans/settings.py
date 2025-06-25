@@ -32,15 +32,11 @@ SECRET_KEY = 'django-insecure-qj3_40%4=9h!6h8tt+1dr)-l0_fh120p^7hb4rh%4ns0g=r@14
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-<<<<<<< HEAD
+
 
 ALLOWED_HOSTS = []
-=======
-ALLOWED_HOSTS = ['*']
->>>>>>> 912d69cbe90a8446810f79fbccc9ec87649ed5a6
-
 
 
 
@@ -48,7 +44,7 @@ ALLOWED_HOSTS = ['*']
 
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
+
    'django.contrib.admin',
    'django.contrib.auth',
    'django.contrib.contenttypes',
@@ -62,26 +58,9 @@ INSTALLED_APPS = [
    'cooperative',
    'farmerLoan',
    'rest_framework',
-
-=======
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'bankpartners',
-    'loan_repayments',
-    'document',
-    'cooperative',
-     'farmer',
-     'farmerWealth',
-     'farmerLoan',
-     'rest_framework',
+   'document'
 
 
-    
->>>>>>> 912d69cbe90a8446810f79fbccc9ec87649ed5a6
 
 ]
 
