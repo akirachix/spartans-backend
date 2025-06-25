@@ -21,25 +21,12 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    path('',include("loan_repayments.urls"))
-
-    path('',include("bankpartners.urls")),
-]
-
-from django.urls import path, include
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',include("cooperative.urls")),
-
-from django.urls import path,include
-]
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('document.urls')),
-    
+    path('loan_repayments/',include("loan_repayments.urls")),
+    path('bankpartners/',include("bankpartners.urls")),
+    path('cooperative/',include("cooperative.urls")),
+    path('document/', include('document.urls')),
     path('farmerLoan/',include('farmerLoan.urls')),
-   
+    path('farmer/',include('farmer.urls')),
+    path('farmerWealth/',include('farmerWealth.urls')),
 
 ]
