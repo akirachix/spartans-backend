@@ -2,22 +2,20 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
 from django.utils import timezone
-from farmer.models import Farmer  # Adjust import if needed
+from farmer.models import Farmer  
 from .models import FarmerWealth
 
 
 class FarmerWealthViewSetTests(APITestCase):
    def setUp(self):
-       # Create a Farmer instance with all required fields
+     
        self.farmer = Farmer.objects.create(
            join_date=timezone.now().date(),
-           # Add other required Farmer fields here, e.g.:
-           # name="Test Farmer",
-           # location="Test Location",
+
        )
 
 
-       # Create some FarmerWealth instances
+
        self.fw1 = FarmerWealth.objects.create(
            farmer=self.farmer,
            milk_quantity="50 liters",
