@@ -10,7 +10,10 @@ class Migration(migrations.Migration):
 
     dependencies = [
         # ('farmer', '0001_initial'),
+<<<<<<< HEAD
 
+=======
+>>>>>>> develops
     ]
 
     operations = [

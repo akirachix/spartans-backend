@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bankpartners',
     'loan_repayments',
+<<<<<<< HEAD
     'document',
     'cooperative',
      'farmer',
@@ -60,6 +61,13 @@ INSTALLED_APPS = [
 
 
     
+=======
+    'farmer',
+    'farmerWealth',
+    'cooperative',
+    'farmerLoan',
+    'rest_framework',
+>>>>>>> develops
 
 ]
 

@@ -1,7 +1,10 @@
 from django.db import models
 from farmer.models import Farmer
 from farmerLoan.models import Loan
+<<<<<<< HEAD
 
+=======
+>>>>>>> develops
 # Create your models here.
 class LoanRepayment(models.Model):
     loan_repayment_id = models.AutoField(primary_key=True)
