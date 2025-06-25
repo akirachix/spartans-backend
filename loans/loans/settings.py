@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-qj3_40%4=9h!6h8tt+1dr)-l0_fh120p^7hb4rh%4ns0g=r@14'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,8 +41,21 @@ INSTALLED_APPS = [
     'loan_repayments',
     'farmer',
     'cooperative',
+<<<<<<< HEAD
     'farmerLoan',
     'rest_framework',
+=======
+    'document',
+    'farmerLoan',
+    'farmerWealth',
+    'document',
+    'cooperative',
+     'farmer',
+     'farmerWealth',
+     'farmerLoan',
+     'rest_framework',
+
+>>>>>>> 4f0891618da362996c36835b56698068c12abe0c
     
 
 ]

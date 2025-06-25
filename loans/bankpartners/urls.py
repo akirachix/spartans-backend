@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.urls import path, include
 from . import views
 from rest_framework.routers import DefaultRouter
@@ -9,3 +10,6 @@ urlpatterns=[
     path('',include(router.urls)),
     
 ]
+=======
+
+>>>>>>> 4f0891618da362996c36835b56698068c12abe0c
