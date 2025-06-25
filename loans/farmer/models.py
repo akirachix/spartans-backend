@@ -8,8 +8,8 @@ class Farmer(models.Model):
     status = models.CharField(max_length=20)
     email = models.EmailField(max_length=20)
     phone_number = models.CharField(max_length=20)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField()
+    updated_at = models.DateTimeField()
     def __str__(self):
         return f"Farmer {self.farmer_id} - {self.email}"
 
