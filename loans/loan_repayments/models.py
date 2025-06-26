@@ -15,3 +15,6 @@ class LoanRepayment(models.Model):
     def __str__(self):
         return f"Repayment {self.loan_repayment_id} - Status: {self.status}"
 
+    def __str__(self):
+        return f"Due: {self.due_date}, Remaining: {self.amount_remaining}, Paid: {self.amount_paid}"
+
