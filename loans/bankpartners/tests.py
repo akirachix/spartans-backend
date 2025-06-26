@@ -11,7 +11,7 @@ class CooperativePartnerBankAPITests(APITestCase):
             "amount_owed": "1000.00",
             "amount_paid": "200.00",
             "due_date": "2025-12-31T12:00:00Z",
-            "amount_remaining": "800.00"
+            # "amount_remaining": "800.00"
         }
         self.bank = CooperativePartnerBank.objects.create(**self.bank_data)
         self.list_url = reverse('bankpartners-list')
@@ -29,12 +29,16 @@ class CooperativePartnerBankAPITests(APITestCase):
             "amount_owed": "1500.00",
             "amount_paid": "300.00",
             "due_date": "2025-11-30T09:00:00Z",
-            "amount_remaining": "1200.00"
+            # "amount_remaining": "1200.00"
         }
         response = self.client.post(self.list_url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(CooperativePartnerBank.objects.count(), 2)
         self.assertEqual(response.data['bank_name'], "New Bank")
+
+
+        expected_remaining = float(data['amount_owed']) - float(data['amount_paid'])
+        self.assertEqual(str(response.data['amount_remaining']), str(expected_remaining))
 
     def test_retrieve_cooperative_partner_bank(self):
         detail_url = reverse('bankpartners-detail', args=[self.bank.bank_partner_id])
@@ -64,3 +68,16 @@ class CooperativePartnerBankAPITests(APITestCase):
         response = self.client.delete(detail_url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(CooperativePartnerBank.objects.count(), 0)
+
+    def test_amount_remaining_calculation(self):
+        bank = CooperativePartnerBank.objects.create(
+            bank_name="Calc Bank",
+            bank_account_number="111222333",
+            amount_owed="2000.00",
+            amount_paid="500.00",
+            due_date="2025-10-10T10:00:00Z"
+        )
+        self.assertEqual(bank.amount_remaining, bank.amount_owed - bank.amount_paid)
+        bank.amount_paid = "1500.00"
+        bank.save()
+        self.assertEqual(bank.amount_remaining, bank.amount_owed - bank.amount_paid)
