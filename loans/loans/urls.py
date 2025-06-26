@@ -21,13 +21,7 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('',include("loan_repayments.urls")),
-    # path('',include("bankpartners.urls")),
-    # path('',include('farmerWealth.urls')),
-    # path('',include('farmer.urls')),
-    path('',include("cooperative.urls")),
-    # path('', include('document.urls')),
-    # path('farmerLoan/',include('farmerLoan.urls')),
-   
+    path('',include("coop_api.urls")),
+    
 
 ]
