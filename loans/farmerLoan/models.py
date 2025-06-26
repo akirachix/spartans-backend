@@ -1,4 +1,6 @@
 from django.db import models
+from farmer.models import Farmer
+from cooperative.models import Cooperative
 
 # Create your models here.
 class Loan(models.Model):
