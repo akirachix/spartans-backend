@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     # 'document',
     # 'farmerWealth',
     'rest_framework',
-    'loan_repayment_api',
+    'api',
 
     
 
