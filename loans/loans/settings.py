@@ -49,13 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     'farmer',
-     'farmerWealth',
-     'rest_framework',
-
-
-
-    
+    'farmer',
+    'rest_framework',
+    'api',
 
 ]
 
