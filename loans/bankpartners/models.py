@@ -10,6 +10,7 @@ class CooperativePartnerBank(models.Model):
     amount_paid = models.DecimalField(max_digits=10, decimal_places=2)
     due_date = models.DateTimeField()
     amount_remaining = models.DecimalField(max_digits=10, decimal_places=2)
+    
     def __str__(self):
         return f"Bank {self.bank_name} - Partner ID: {self.bank_partner_id}"
     

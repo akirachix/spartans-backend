@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import  CooperativePartnerBank
+from bankpartners.models import  CooperativePartnerBank
 class CooperativePartnerBankSerializer(serializers.ModelSerializer):
     class Meta:
         model = CooperativePartnerBank
