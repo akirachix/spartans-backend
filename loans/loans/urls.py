@@ -21,7 +21,7 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include("coop_api.urls")),
+    path('coop_api/',include("coop_api.urls")),
     
 
 ]
