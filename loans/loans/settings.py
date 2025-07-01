@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'farmer',
+    'farmer_wealth',
     'rest_framework',
     'api',
 

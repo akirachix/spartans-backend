@@ -1,11 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from farmer.models import Farmer, FarmerWealth
-from .serializers import FarmerSerializer,FarmerWealthSerializer
-
-class FarmerViewSet(viewsets.ModelViewSet):
-   queryset = Farmer.objects.all()
-   serializer_class = FarmerSerializer
+from farmer_wealth.models import FarmerWealth
+from .serializers import FarmerWealthSerializer
 
 class FarmerWealthViewSet(viewsets.ModelViewSet):
    queryset = FarmerWealth.objects.all()

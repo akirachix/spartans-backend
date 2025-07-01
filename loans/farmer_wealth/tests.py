@@ -1,7 +1,7 @@
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
-from farmer.models import Farmer, FarmerWealth
+from farmer.models import FarmerWealth
 
 class SimpleFarmerWealthTest(APITestCase):
     def setUp(self):

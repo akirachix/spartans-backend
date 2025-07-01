@@ -1,7 +1,5 @@
 from rest_framework import serializers
-from farmer.models import Farmer
-
-
+from farmer_wealth.models import FarmerWealth
 
 class FarmerWealthSerializer(serializers.ModelSerializer):
    class Meta:
