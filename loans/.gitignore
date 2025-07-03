@@ -12,3 +12,6 @@ __pycache__/
 loansenv/
 __pycache__/
 *pyc
+loansenv/
+__pycache__/
+.pyc

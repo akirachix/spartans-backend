@@ -14,7 +14,7 @@ class CooperativePartnerBank(models.Model):
     def save(self, *args, **kwargs):
         self.amount_remaining = self.amount_owed - self.amount_paid
         super().save(*args, **kwargs)
-    
+        
     def __str__(self):
         return f"Bank {self.bank_name} - Partner ID: {self.bank_partner_id}"
     
