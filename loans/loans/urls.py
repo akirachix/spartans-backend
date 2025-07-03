@@ -27,9 +27,7 @@ urlpatterns = [
     # path('',include("bankpartners.urls")),
     # path('farmerLoan/',include('farmerLoan.urls')),
     path('api/', include('api.urls')),
-    # path('',include("cooperative.urls")),
-    # path('',include("farmer.urls")),
-    # path('', include("farmerWealth.urls")),
+    
 ]
 
 

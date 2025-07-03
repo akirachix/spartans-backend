@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Document(models.Model):
     document_id = models.AutoField(primary_key=True)
-    # farmer = models.ForeignKey(Farmer, on_delete=models.CASCADE)
+  
     type = models.TextField()
     # file_url = models.ImageField(upload_to='documents/')
     uploaded_at = models.DateTimeField(auto_now_add=True)

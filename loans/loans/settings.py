@@ -51,15 +51,13 @@ INSTALLED_APPS = [
    'django.contrib.sessions',
    'django.contrib.messages',
    'django.contrib.staticfiles',
-   'bankpartners',
-   'loan_repayments',
-   'farmer',
-   'farmerWealth',
-   'cooperative',
+   
    'farmerLoan',
    'rest_framework',
    'document',
    'api',
+   
+
 
 
 

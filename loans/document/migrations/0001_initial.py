@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        # ('farmer', '0001_initial'),
+        
     ]
 
     operations = [
@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('document_id', models.AutoField(primary_key=True, serialize=False)),
                 ('type', models.TextField()),
                 ('uploaded_at', models.DateTimeField(auto_now_add=True)),
-                ('farmer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='farmer.farmer')),
+                # ('farmer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='farmer.farmer')),
             ],
         ),
     ]
