@@ -4,16 +4,6 @@ from rest_framework.test import APITestCase
 from farmer.models import FarmerWealth
 
 class SimpleFarmerWealthTest(APITestCase):
-    def setUp(self):
-        
-        self.farmer = Farmer.objects.create(
-            join_date="2025-01-01",
-            status="active",
-            email="testfarmer@example.com",
-            phone_number="1234567890"
-        )
-        
-        self.list_url = reverse('farmer_wealth-list')
 
     def test_list_farmer_wealth(self):
         
