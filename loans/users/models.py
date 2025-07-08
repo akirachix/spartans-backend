@@ -18,17 +18,5 @@ class User(models.Model):
     cooperative_id = models.CharField(max_length=50, blank=True, null=True)
     national_id = models.CharField(max_length=50, blank=True, null=True)
     
-    def clean(self):
-        if self.type == 'cooperative':
-            if not self.cooperative_id:
-                raise ValidationError("Cooperative ID is required for cooperatives.")
-            if self.national_id:
-                raise ValidationError("Cooperatives should not have a National ID.")
-        elif self.type == 'farmer':
-            if not self.national_id:
-                raise ValidationError("National ID is required for farmers.")
-            if self.cooperative_id:
-                raise ValidationError("Farmers should not have a Cooperative ID.")
-
-    def __str__(self):
-        return f"{self.fullname} ({self.get_type_display()})"
+    
+    
