@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bankpartners',
     'loan_repayments',
-
+    'farmer_wealth',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
