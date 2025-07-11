@@ -13,3 +13,7 @@ __pycache__/
 db.sqlite3
 
 >>>>>>> feature/agricreds_API
+loanenv/
+__pycashe__/
+*.pyc/
+db.sqlite3
