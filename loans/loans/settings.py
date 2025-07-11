@@ -37,8 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bankpartners',
-    'loan_repayments',
     'farmer_wealth',
     'rest_framework',
 ]
