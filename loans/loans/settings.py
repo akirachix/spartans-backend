@@ -43,11 +43,9 @@ INSTALLED_APPS = [
     'cooperative',
     'farmerLoan',
     # 'document',
-    # 'farmerWealth',
+    'farmerWealth',
     'rest_framework',
     'api',
-
-    
 
 ]
 
