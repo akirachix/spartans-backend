@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 db.sqlite3
 __pycache__/
 loansenv/
@@ -7,8 +7,7 @@ __pycache__/
 **/__pycache__/
 */__pycache__/
 *.py[cod]
-=======
-<<<<<<< HEAD
+
 
 loansenv/
 __pycache__/
@@ -27,9 +26,8 @@ loansenv/
 __pycache__/
 .pyc
 env/
-env/
-env/
-=======
+
+
 *.pyc
 *.pyo
 *.pyd
@@ -38,5 +36,4 @@ __pycache__/
 *.pyc/
 db.sqlite3
 
->>>>>>> 092a675b03723588a668ace71b4d03125a98d33f
->>>>>>> 2e64e492b80401b3f82435c41e2ee4a859001533
+
