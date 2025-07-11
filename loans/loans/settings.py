@@ -62,8 +62,8 @@ INSTALLED_APPS = [
     'coop_api',
     'bankpartners',
     'bank_api',
-    'users',
-    'coop_api',
+    'farmerLoan',
+    'document',
     'api',
     'loan_repayments',
     
