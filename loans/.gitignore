@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+loanenv/
+__pycashe__/
+*.pyc/
+db.sqlite3
+=======
+=======
+=======
+>>>>>>> 69a1b09bb947a887cefe158f2f008199e877ea36
 
 db.sqlite3
 __pycache__/
@@ -26,6 +37,14 @@ loansenv/
 __pycache__/
 .pyc
 env/
+<<<<<<< HEAD
+env/
+env/
+=======
+>>>>>>> 2e64e492b80401b3f82435c41e2ee4a859001533
+>>>>>>> feature/agricreds_API
+=======
+>>>>>>> 69a1b09bb947a887cefe158f2f008199e877ea36
 *.pyc
 *.pyo
 *.pyd
@@ -35,6 +54,19 @@ __pycache__/
 *.pyc/
 db.sqlite3
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> feature/agricreds_API
+loanenv/
+__pycashe__/
+*.pyc/
+db.sqlite3
+=======
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 69a1b09bb947a887cefe158f2f008199e877ea36
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -59,3 +91,10 @@ local_settings.py # Local settings that might contain sensitive information
 .DS_Store
 Thumbs.db
 
+<<<<<<< HEAD
+=======
+>>>>>>> 092a675b03723588a668ace71b4d03125a98d33f
+>>>>>>> 2e64e492b80401b3f82435c41e2ee4a859001533
+>>>>>>> feature/agricreds_API
+=======
+>>>>>>> 69a1b09bb947a887cefe158f2f008199e877ea36

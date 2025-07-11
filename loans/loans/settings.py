@@ -49,25 +49,29 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
 
 
+
    'django.contrib.admin',
    'django.contrib.auth',
    'django.contrib.contenttypes',
    'django.contrib.sessions',
    'django.contrib.messages',
    'django.contrib.staticfiles',
-   
-   'farmerLoan',
-   'rest_framework',
-   'document',
-   'api',
-   'users',
+     'farmer_wealth',
+    'rest_framework',
+    'users',
     'coop_api',
     'bankpartners',
-    'loan_repayments',
     'bank_api',
+    'users',
+    'coop_api',
+    'api',
+    'loan_repayments',
+    
 
    
 ]
+
+
 
 
 
