@@ -1,19 +1,81 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 loanenv/
 __pycashe__/
 *.pyc/
 db.sqlite3
 =======
+=======
+
+=======
+<<<<<<< HEAD
+
+loansenv/
+__pycache__/
+*.pyc/
+db.sqlite3
+loansenv/
+__pycache__/
+*pyc
+loansenv/
+__pycache__/
+*pyc
+loansenv/
+__pycache__/
+*pyc
+loansenv/
+__pycache__/
+.pyc
+env/
+env/
+env/
+=======
+>>>>>>> 2e64e492b80401b3f82435c41e2ee4a859001533
+>>>>>>> feature/agricreds_API
 *.pyc
 *.pyo
 *.pyd
+
 loanenv/
 __pycache__/
 *.pyc/
 db.sqlite3
 
+<<<<<<< HEAD
 >>>>>>> feature/agricreds_API
 loanenv/
 __pycashe__/
 *.pyc/
 db.sqlite3
+=======
+<<<<<<< HEAD
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+
+# Django-specific files
+*.log
+*.sqlite3
+media/  # User-uploaded media files
+static/ # Collected static files (if serving them directly in production)
+local_settings.py # Local settings that might contain sensitive information
+
+# IDE-specific files (e.g., VS Code, PyCharm)
+.vscode/
+.idea/
+
+# Operating system generated files
+.DS_Store
+Thumbs.db
+
+=======
+>>>>>>> 092a675b03723588a668ace71b4d03125a98d33f
+>>>>>>> 2e64e492b80401b3f82435c41e2ee4a859001533
+>>>>>>> feature/agricreds_API

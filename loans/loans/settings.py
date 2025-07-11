@@ -34,9 +34,16 @@ SECRET_KEY = 'django-insecure-qj3_40%4=9h!6h8tt+1dr)-l0_fh120p^7hb4rh%4ns0g=r@14
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+
+
+ALLOWED_HOSTS = []
+
 ALLOWED_HOSTS = []
 
 
+
+ALLOWED_HOSTS = []
 
 
 
@@ -44,18 +51,32 @@ ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    # 'farmer_wealth',
+
+
+
+   'django.contrib.admin',
+   'django.contrib.auth',
+   'django.contrib.contenttypes',
+   'django.contrib.sessions',
+   'django.contrib.messages',
+   'django.contrib.staticfiles',
+     'farmer_wealth',
     'rest_framework',
     'users',
     'coop_api',
+    'bankpartners',
+    'bank_api',
+    'users',
+    'coop_api',
+    'api',
 
+    
+   
 ]
+
+
+
+
 
 
 MIDDLEWARE = [
