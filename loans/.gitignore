@@ -1,18 +1,14 @@
-<<<<<<< HEAD
 
-
-
-=======
 *.pyc
 *.pyo
 *.pyd
->>>>>>> 092a675b03723588a668ace71b4d03125a98d33f
+
 loanenv/
 __pycache__/
 *.pyc/
 db.sqlite3
 
-<<<<<<< HEAD
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -37,5 +33,4 @@ local_settings.py # Local settings that might contain sensitive information
 # Operating system generated files
 .DS_Store
 Thumbs.db
-=======
->>>>>>> 092a675b03723588a668ace71b4d03125a98d33f
+
