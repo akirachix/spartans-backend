@@ -1,8 +1,11 @@
 from django.db import models
 from farmerLoan.models import Loan
+from user.models import User
+
 # Create your models here.
 class LoanRepayment(models.Model):
     loan_repayment_id = models.AutoField(primary_key=True)
+    user=models.ForeignKey('user.User',on_delete=models.CASCADE)
     loan = models.ForeignKey('farmerLoan.Loan', on_delete=models.CASCADE)
     due_date = models.DateTimeField()
     amount_remaining = models.DecimalField(max_digits=10, decimal_places=2)
