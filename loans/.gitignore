@@ -1,4 +1,15 @@
+<<<<<<< HEAD
 loanenv/
 __pycashe__/
 *.pyc/
 db.sqlite3
+=======
+*.pyc
+*.pyo
+*.pyd
+loanenv/
+__pycache__/
+*.pyc/
+db.sqlite3
+
+>>>>>>> feature/agricreds_API

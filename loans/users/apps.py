@@ -1,12 +1,9 @@
 from django.apps import AppConfig
 
 
-<<<<<<< HEAD:loans/api/apps.py
 class ApiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'api'
-=======
 class UsersConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'users'
->>>>>>> feature/agricreds_API:loans/users/apps.py
