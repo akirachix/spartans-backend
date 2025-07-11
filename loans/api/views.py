@@ -9,6 +9,19 @@
 #   serializer_class= FarmerWealthSerializer
 from django.shortcuts import render
 from rest_framework import viewsets
+from loan_repayments.models import LoanRepayment
+from .serializers import LoanRepaymentSerializer
+
+class LoanRepaymentViewSet (viewsets.ModelViewSet):
+    queryset = LoanRepayment.objects.all()
+    serializer_class = LoanRepaymentSerializer
+
+
+
+
+   
+
+
 # Create your views here.from rest_framework import viewsets
 from document.models import Document
 from .serializers import DocumentSerializer

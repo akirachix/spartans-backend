@@ -39,11 +39,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = []
 
-
-
-ALLOWED_HOSTS = []
 
 
 
@@ -69,8 +65,9 @@ INSTALLED_APPS = [
     'users',
     'coop_api',
     'api',
-
+    'loan_repayments',
     
+
    
 ]
 
