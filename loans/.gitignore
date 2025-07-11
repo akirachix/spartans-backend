@@ -1,0 +1,4 @@
+loanenv/
+__pycashe__/
+*.pyc/
+db.sqlite3
