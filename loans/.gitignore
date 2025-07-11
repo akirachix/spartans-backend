@@ -1,7 +1,13 @@
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
+db.sqlite3
+__pycache__/
+loansenv/
+# Ignore Python cache
+__pycache__/
+**/__pycache__/
+*/__pycache__/
+*.py[cod]
+
 
 loansenv/
 __pycache__/
@@ -20,10 +26,6 @@ loansenv/
 __pycache__/
 .pyc
 env/
-env/
-env/
-=======
->>>>>>> 2e64e492b80401b3f82435c41e2ee4a859001533
 *.pyc
 *.pyo
 *.pyd
@@ -32,9 +34,6 @@ loanenv/
 __pycache__/
 *.pyc/
 db.sqlite3
-
-<<<<<<< HEAD
-
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -60,6 +59,3 @@ local_settings.py # Local settings that might contain sensitive information
 .DS_Store
 Thumbs.db
 
-=======
->>>>>>> 092a675b03723588a668ace71b4d03125a98d33f
->>>>>>> 2e64e492b80401b3f82435c41e2ee4a859001533

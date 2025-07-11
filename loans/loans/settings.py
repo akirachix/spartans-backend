@@ -39,11 +39,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = []
 
-
-
-ALLOWED_HOSTS = []
 
 
 
@@ -51,7 +47,6 @@ ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
 
 
    'django.contrib.admin',
@@ -67,24 +62,13 @@ INSTALLED_APPS = [
    'api',
    'users',
     'coop_api',
-    
+    'bankpartners',
+    'loan_repayments',
+    'bank_api',
+
    
 ]
 
-
-=======
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'bankpartners',
-    'rest_framework',
-    'bank_api',
-    'users',
-    'coop_api',
->>>>>>> 2e64e492b80401b3f82435c41e2ee4a859001533
 
 
 
