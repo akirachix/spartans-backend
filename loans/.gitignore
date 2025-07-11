@@ -98,3 +98,9 @@ Thumbs.db
 >>>>>>> feature/agricreds_API
 =======
 >>>>>>> 69a1b09bb947a887cefe158f2f008199e877ea36
+env/
+__pycache__/
+*.pyc
+loanenv/
+__pycache__/
+*.pyc

@@ -3,6 +3,9 @@ from farmer_wealth.models import FarmerWealth
 from rest_framework import serializers
 from loan_repayments.models import LoanRepayment
 from bankpartners.models import CooperativePartnerBank
+from users.models import User
+from farmerLoan.models import Loan 
+from document.models import Document
 
 class FarmerWealthSerializer(serializers.ModelSerializer):
   class Meta:
@@ -17,16 +20,13 @@ class LoanRepaymentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-  
-from document.models import  Document
 
 class DocumentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Document
         fields = '__all__'
 
-from rest_framework import serializers
-from farmerLoan.models import  Loan 
+
 
 class LoanSerializer(serializers.ModelSerializer):
     class Meta:
@@ -41,3 +41,11 @@ class CooperativePartnerBankSerializer(serializers.ModelSerializer):
     class Meta:
         model = CooperativePartnerBank
         fields = '__all__'
+
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields ="__all__"
+

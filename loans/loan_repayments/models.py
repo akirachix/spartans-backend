@@ -6,7 +6,7 @@ from django.conf import settings
 # Create your models here.
 class LoanRepayment(models.Model):
     loan_repayment_id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     loan = models.ForeignKey(Loan, on_delete=models.CASCADE)
     due_date = models.DateTimeField()
     amount_remaining = models.DecimalField(max_digits=10, decimal_places=2)

@@ -58,7 +58,6 @@ INSTALLED_APPS = [
    'django.contrib.staticfiles',
     'farmer_wealth',
     'rest_framework',
-    'coop_api',
     'bankpartners',
     'users',
     'api',
@@ -68,8 +67,9 @@ INSTALLED_APPS = [
 
    
 ]
-
-
+import os
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
