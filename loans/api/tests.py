@@ -1,60 +1,57 @@
 from django.test import TestCase
 
-# Create your tests here.
+from django.test import TestCase
+from rest_framework.test import APITestCase
+from rest_framework import status
+from django.urls import reverse
+from loan_repayments.models import LoanRepayment
+from farmerLoan.models import Loan
+from django.utils import timezone
 
-# from django.test import TestCase
-# from rest_framework.test import APITestCase
-# from rest_framework import status
-# from django.urls import reverse
-# from loan_repayments.models import LoanRepayment
-# from farmerLoan.models import Loan
+class LoanRepaymentTests(APITestCase):
 
-# class LoanRepaymentTests(APITestCase):
-
-#     def setUp(self):
-#         self.loan=Loan.objects.create(loan_id=1,amount_requested=500.00,amount_approved=500.00,
-#         purpose="Equipment loan", status= "Active", application_date="2025-03-26T05:40:50Z",approval_date="2025-03-28T05:40:50Z",
-#         disbursement_date="2025-03-29T05:40:50Z")
+    def setUp(self):
+        self.loan=Loan.objects.create(loan_id=1,amount_requested=500.00,amount_approved=500.00,
+        purpose="Equipment loan", status= "Active", application_date="2025-03-26T05:40:50Z",approval_date="2025-03-28T05:40:50Z",
+        disbursement_date="2025-03-29T05:40:50Z")
 
    
-#         self.LoanRepayment_data = {
-#             "loan_repayment_id": 3,
-#             "due_date": "2025-06-26T05:40:50Z",
-#             "amount_remaining": "20000.00",
-#             "amount_paid": "14000.00",
-#             "payment_date": "2025-06-26T05:41:14Z",
-#             "status": "Inactive",
-#             "loan": self.loan
-#         }
+        self.LoanRepayment_data = {
+            "loan_repayment_id": 3,
+            "due_date": "2025-06-26T05:40:50Z",
+            "amount_remaining": "20000.00",
+            "amount_paid": "14000.00",
+            "payment_date": "2025-06-26T05:41:14Z",
+            "status": "Inactive",
+            "loan": self.loan
+        }
 
-#     def test_post_LoanRepayment(self):
-#         url = reverse('LoanRepayment-list')
-#         response = self.client.post(url, self.LoanRepayment_data, format='json')
-#         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+    def test_post_LoanRepayment(self):
+        url = reverse('LoanRepayment-list')
+        response = self.client.post(url, self.LoanRepayment_data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
-#     def test_get_LoanRepayment(self):
-#         LoanRepayment.objects.create(**self.LoanRepayment_data)
-#         url = reverse('LoanRepayment-list')
-#         response = self.client.get(url)
-#         self.assertEqual(response.status_code, status.HTTP_200_OK)
+    def test_get_LoanRepayment(self):
+        LoanRepayment.objects.create(**self.LoanRepayment_data)
+        url = reverse('LoanRepayment-list')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-#     def test_put_LoanRepayment(self):
-#         repayment = LoanRepayment.objects.create(**self.LoanRepayment_data)
-#         url = reverse('LoanRepayment-detail', args=[repayment.id])
-#         response = self.client.put(url, self.LoanRepayment_data, format='json')
-#         self.assertEqual(response.status_code, status.HTTP_200_OK)
+    def test_put_LoanRepayment(self):
+        repayment = LoanRepayment.objects.create(**self.LoanRepayment_data)
+        url = reverse('LoanRepayment-detail', args=[repayment.id])
+        response = self.client.put(url, self.LoanRepayment_data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-#     def test_delete_LoanRepayment(self):
-#         repayment = LoanRepayment.objects.create(**self.LoanRepayment_data)
-#         url = reverse('LoanRepayment-detail', args=[repayment.id])
-#         response = self.client.delete(url)
-#         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+    def test_delete_LoanRepayment(self):
+        repayment = LoanRepayment.objects.create(**self.LoanRepayment_data)
+        url = reverse('LoanRepayment-detail', args=[repayment.id])
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
 # tests/test_models.py
 
-from django.test import TestCase
-from farmerLoan.models import Loan
-from django.utils import timezone
+
 
 class LoanModelTest(TestCase):
 
@@ -87,3 +84,30 @@ class LoanModelTest(TestCase):
         self.assertIsNotNone(self.loan.approval_date)
         self.assertIsNotNone(self.loan.disbursement_date)
 
+class CooperativePartnerBankViewSetTestCase(APITestCase):
+    def setUp(self):
+        self.bank_data = CooperativePartnerBank.objects.create(
+            bank_name = "Test Bank",
+            bank_account_number ="1234567890",
+            amount_owed = Decimal('1000.00'),
+            amount_paid = Decimal('200.00'),
+            due_date = "2025-12-31T12:00:00Z"
+         
+        )
+        self.list_url = reverse('bankpartners-list')
+
+    def test_create_cooperative_partner_bank(self):
+        data = {
+            "bank_name": "New Bank",
+            "bank_account_number": "0987654321",
+            "amount_owed": "1500.00",
+            "amount_paid": "300.00",
+            "due_date": "2025-11-30T09:00:00Z",
+        }
+        response = self.client.post(self.list_url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data['bank_name'], "New Bank")
+
+
+        expected_remaining = Decimal(data['amount_owed']) - Decimal(data['amount_paid'])
+        self.assertEqual(Decimal(response.data['amount_remaining']), Decimal(expected_remaining))

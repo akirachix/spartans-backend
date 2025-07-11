@@ -21,12 +21,8 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls')),
-    path('coop_api/',include("coop_api.urls")),
-    path('bank_api/',include("bank_api.urls")),
-    path('coop_api/',include("coop_api.urls")),   
+    path('api/', include('api.urls')),  
   
-
 ]
 
 
