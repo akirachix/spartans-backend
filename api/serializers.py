@@ -6,6 +6,7 @@ from bankpartners.models import CooperativePartnerBank
 from users.models import User
 from farmerLoan.models import Loan 
 from document.models import Document
+from .disbursment import DarajaAPI
 
 class FarmerWealthSerializer(serializers.ModelSerializer):
   class Meta:
@@ -49,3 +50,14 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields ="__all__"
 
+
+class STKPushSerializer(serializers.Serializer):
+  phone_number = serializers.CharField()
+  amount = serializers.DecimalField(max_digits=10, decimal_places=2)
+  account_reference = serializers.CharField()
+  transaction_desc = serializers.CharField()
+
+class DarajaAPISerializer(serializers.Serializer):
+  class Meta:
+      model = LoanRepayment
+      fields = "__all__"

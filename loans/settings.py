@@ -15,12 +15,15 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+import dj_database_url
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(os.path.join(BASE_DIR, '.env'))
+DEBUG =os.getenv('DEBUG', 'False').lower() in ['true','1','yes']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,14 +31,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-qj3_40%4=9h!6h8tt+1dr)-l0_fh120p^7hb4rh%4ns0g=r@14'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-
-
 
 ALLOWED_HOSTS = []
 
@@ -175,3 +174,13 @@ STATIC_URL = 'static/'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+DARAJA_CONSUMER_KEY = os.getenv('DARAJA_CONSUMER_KEY')
+DARAJA_CONSUMER_SECRET = os.getenv('DARAJA_CONSUMER_SECRET')
+DARAJA_SHORTCODE = os.getenv('DARAJA_SHORTCODE')
+DARAJA_PASSKEY = os.getenv('DARAJA_PASSKEY')
+DARAJA_CALLBACK_URL = os.getenv('DARAJA_CALLBACK_URL')
+SECRET_KEY = os.getenv('SECRET_KEY')
