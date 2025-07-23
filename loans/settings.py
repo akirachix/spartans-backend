@@ -15,29 +15,17 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+import dj_database_url
 
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(os.path.join(BASE_DIR, '.env'))
+SECRET_KEY = os.environ.get('SECRET_KEY')
+DEBUG =os.getenv('DEBUG', 'False').lower() in ['true','1','yes']
+DEBUG = False
 
-
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-qj3_40%4=9h!6h8tt+1dr)-l0_fh120p^7hb4rh%4ns0g=r@14'
-
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-
-
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 
@@ -63,10 +51,14 @@ INSTALLED_APPS = [
     'api',
     'loan_repayments',
     'farmerLoan',
-    'document'
+    'document',
+    'corsheaders',
 
    
 ]
+
+
+
 import os
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -82,6 +74,9 @@ MIDDLEWARE = [
    'django.contrib.auth.middleware.AuthenticationMiddleware',
    'django.contrib.messages.middleware.MessageMiddleware',
    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+   'whitenoise.middleware.WhiteNoiseMiddleware',
+   'corsheaders.middleware.CorsMiddleware',
+   'django.contrib.messages.middleware.MessageMiddleware',
 ]
 
 
@@ -112,14 +107,14 @@ WSGI_APPLICATION = 'loans.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-
-DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.sqlite3',
-       'NAME': BASE_DIR / 'db.sqlite3',
-   }
-}
-
+DATABASES = {"default": dj_database_url.config(default=os.getenv("DATABASE_URL"))}
+if not os.getenv("DATABASE_URL"):
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 
 
@@ -166,8 +161,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
-STATIC_URL = 'static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 
 
 # Default primary key field type
@@ -175,3 +175,13 @@ STATIC_URL = 'static/'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+DARAJA_CONSUMER_KEY = os.getenv('DARAJA_CONSUMER_KEY')
+DARAJA_CONSUMER_SECRET = os.getenv('DARAJA_CONSUMER_SECRET')
+DARAJA_SHORTCODE = os.getenv('DARAJA_SHORTCODE')
+DARAJA_PASSKEY = os.getenv('DARAJA_PASSKEY')
+DARAJA_CALLBACK_URL = os.getenv('DARAJA_CALLBACK_URL')
+SECRET_KEY = os.getenv('SECRET_KEY')
+
+CORS_ALLOW_ALL_ORIGINS = True
