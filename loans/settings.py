@@ -21,6 +21,7 @@ import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(BASE_DIR, '.env'))
+SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG =os.getenv('DEBUG', 'False').lower() in ['true','1','yes']
 DEBUG = False
 
@@ -56,7 +57,7 @@ INSTALLED_APPS = [
    
 ]
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+
 
 import os
 MEDIA_URL = '/media/'
@@ -75,6 +76,7 @@ MIDDLEWARE = [
    'django.middleware.clickjacking.XFrameOptionsMiddleware',
    'whitenoise.middleware.WhiteNoiseMiddleware',
    'corsheaders.middleware.CorsMiddleware',
+   'django.contrib.messages.middleware.MessageMiddleware',
 ]
 
 
@@ -105,14 +107,14 @@ WSGI_APPLICATION = 'loans.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-
-DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.sqlite3',
-       'NAME': BASE_DIR / 'db.sqlite3',
-   }
-}
-
+DATABASES = {"default": dj_database_url.config(default=os.getenv("DATABASE_URL"))}
+if not os.getenv("DATABASE_URL"):
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 
 
