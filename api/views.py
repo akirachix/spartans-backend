@@ -1,5 +1,4 @@
-# from django.shortcuts import render
-# from rest_framework import viewsets
+
 from django.contrib.auth.models import User
 from farmer_wealth.models import FarmerWealth
 from bankpartners.models import CooperativePartnerBank
@@ -52,7 +51,6 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class=UserSerializer
 
-# Reuse your serializer if applicable
 class STKPushView(APIView):
     def post(self, request):
       serializer = STKPushSerializer(data=request.data)
@@ -70,6 +68,39 @@ class STKPushView(APIView):
 
 
 @api_view(['POST'])
-def daraja_callback(request):
-    print("daraja Callback Data:", request.data)
+def daraja_callback(request): 
+    callback_data = request.data
+    print("Daraja Callback Data:", callback_data)
+
+    try:
+        stk_callback = callback_data['Body']['stkCallback']
+        checkout_request_id = stk_callback['CheckoutRequestID']
+        result_code = stk_callback['ResultCode']
+        result_desc = stk_callback['ResultDesc']
+        payment = PaymentDetails.objects.get(mpesa_checkout_id=checkout_request_id)
+
+        payment.result_code = str(result_code)
+        payment.result_description = result_desc
+
+        if result_code == 0:
+            items = stk_callback.get('CallbackMetadata', {}).get('Item', [])
+            item_dict = {item['Name']: item['Value'] for item in items}
+
+            payment.mpesa_receipt_number = item_dict.get('MpesaReceiptNumber')
+            trans_date_str = str(item_dict.get('TransactionDate'))
+            trans_date = datetime.datetime.strptime(trans_date_str, '%Y%m%d%H%M%S')
+            payment.transaction_date = timezone.make_aware(trans_date, timezone.get_current_timezone())
+
+            payment.amount_from_callback = item_dict.get('Amount')
+            payment.phone_number_from_callback = item_dict.get('PhoneNumber')
+            payment.payment_status = 'Completed'
+        else:
+            payment.payment_status = 'Failed'
+
+        payment.save()
+
+    except PaymentDetails.DoesNotExist:
+        print(f"Payment with CheckoutRequestID {checkout_request_id} not found.")
+    except Exception as e:
+        print(f"Error processing Daraja callback: {e}")
     return Response({"ResultCode": 0, "ResultDesc": "Accepted"})
