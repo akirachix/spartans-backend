@@ -22,9 +22,9 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 DEBUG =os.getenv('DEBUG', 'False').lower() in ['true','1','yes']
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["loans.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 
 
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'loan_repayments',
     'farmerLoan',
     'document',
+    'corsheaders',
 
    
 ]
@@ -73,6 +74,7 @@ MIDDLEWARE = [
    'django.contrib.messages.middleware.MessageMiddleware',
    'django.middleware.clickjacking.XFrameOptionsMiddleware',
    'whitenoise.middleware.WhiteNoiseMiddleware',
+   'corsheaders.middleware.CorsMiddleware',
 ]
 
 
@@ -179,3 +181,5 @@ DARAJA_SHORTCODE = os.getenv('DARAJA_SHORTCODE')
 DARAJA_PASSKEY = os.getenv('DARAJA_PASSKEY')
 DARAJA_CALLBACK_URL = os.getenv('DARAJA_CALLBACK_URL')
 SECRET_KEY = os.getenv('SECRET_KEY')
+
+CORS_ALLOW_ALL_ORIGINS = True
