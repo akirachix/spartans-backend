@@ -51,6 +51,7 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class=UserSerializer
 
+
 class STKPushView(APIView):
     def post(self, request):
       serializer = STKPushSerializer(data=request.data)
