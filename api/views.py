@@ -1,5 +1,4 @@
-# from django.shortcuts import render
-# from rest_framework import viewsets
+
 from django.contrib.auth.models import User
 from farmer_wealth.models import FarmerWealth
 from bankpartners.models import CooperativePartnerBank
@@ -105,3 +104,4 @@ def daraja_callback(request):
         print(f"Payment with CheckoutRequestID {checkout_request_id} not found.")
     except Exception as e:
         print(f"Error processing Daraja callback: {e}")
+    return Response({"ResultCode": 0, "ResultDesc": "Accepted"})

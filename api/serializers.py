@@ -1,4 +1,4 @@
-# from rest_framework import serializers
+
 from farmer_wealth.models import FarmerWealth
 from rest_framework import serializers
 from loan_repayments.models import LoanRepayment
@@ -7,6 +7,13 @@ from users.models import User
 from farmerLoan.models import Loan 
 from document.models import Document
 from .disbursment import DarajaAPI
+from rest_framework.views import APIView
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.permissions import AllowAny
+
+
 
 class FarmerWealthSerializer(serializers.ModelSerializer):
   class Meta:
@@ -61,45 +68,3 @@ class DarajaAPISerializer(serializers.Serializer):
   class Meta:
       model = LoanRepayment
       fields = "__all__"
-
-
-
-class STKPushView(APIView):
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [AllowAny]
-
-    def post(self, request):
-        serializer = STKPushSerializer(data=request.data)
-        if serializer.is_valid():
-            data = serializer.validated_data
-            daraja = DarajaAPI()
-            response = daraja.stk_push(
-                phone_number=data['phone_number'],
-                amount=data['amount'],
-                account_reference=data['account_reference'],
-                transaction_desc=data['transaction_desc']
-            )
-
-            checkout_request_id = response.get('CheckoutRequestID', None)
-
-            user = None
-            if request.user.is_authenticated:
-                user = AppUser.objects.get(user=request.user)
-
-            if checkout_request_id:
-
-                payment = PaymentDetails.objects.create(
-                    phone_number=data['phone_number'],
-                    amount=data['amount'],
-                    account_reference=data['account_reference'],
-                    transaction_desc=data['transaction_desc'],
-                    mpesa_checkout_id=checkout_request_id,
-                    quantity= 1,
-                    type = 'payment',
-                    condition='New',
-                    price=data['amount'],
-                )
-
-            return Response(response)
-
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -3,7 +3,7 @@ from farmerLoan.models import Loan
 from users.models import User
 from django.conf import settings
 
-# Create your models here.
+
 class LoanRepayment(models.Model):
     loan_repayment_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
