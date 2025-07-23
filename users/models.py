@@ -30,7 +30,7 @@ class User(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     type = models.CharField(max_length=20, choices=USER_TYPE_CHOICES)
-    national_id = models.IntegerField(
+    national_id = models.CharField(
         max_length=50,
         blank= True,
         null=True,
@@ -38,7 +38,7 @@ class User(models.Model):
         validators=[
             RegexValidator(
                 regex='^\d{7}$',
-                message= ("National ID must be 16 digits")
+                message= ("National ID must be 7 digits")
             )
         ]
     )

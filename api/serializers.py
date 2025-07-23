@@ -58,6 +58,11 @@ class UserSerializer(serializers.ModelSerializer):
         fields ="__all__"
 
 
+class DarajaAPISerializer(serializers.Serializer):
+  class Meta:
+      model = LoanRepayment
+      fields = "__all__"
+
 class STKPushSerializer(serializers.Serializer):
   phone_number = serializers.CharField()
   amount = serializers.DecimalField(max_digits=10, decimal_places=2)
@@ -86,13 +91,13 @@ class STKPushView(APIView):
             )
 
             checkout_request_id = response.get('CheckoutRequestID', None)
-            
+
             user = None
             if request.user.is_authenticated:
                 user = AppUser.objects.get(user=request.user)
-            
+
             if checkout_request_id:
-                
+
                 payment = PaymentDetails.objects.create(
                     phone_number=data['phone_number'],
                     amount=data['amount'],
