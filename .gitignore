@@ -11,7 +11,6 @@ loansenv/
 *$py.class
 venv/
 .env
-.env/
 *.env/
 *.log
 *.sqlite3
@@ -27,3 +26,7 @@ local_settings.py # Local settings that might contain sensitive information
 .DS_Store
 Thumbs.db
 
+
+loanenv/
+__pycache__/
+*.pyc
