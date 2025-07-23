@@ -68,3 +68,60 @@ class DarajaAPISerializer(serializers.Serializer):
   class Meta:
       model = LoanRepayment
       fields = "__all__"
+
+class STKPushSerializer(serializers.Serializer):
+  phone_number = serializers.CharField()
+  amount = serializers.DecimalField(max_digits=10, decimal_places=2)
+  account_reference = serializers.CharField()
+  transaction_desc = serializers.CharField()
+
+class DarajaAPISerializer(serializers.Serializer):
+  class Meta:
+      model = LoanRepayment
+      fields = "__all__"
+
+class STKPushView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serializer = STKPushSerializer(data=request.data)
+        if serializer.is_valid():
+            data = serializer.validated_data
+            daraja = DarajaAPI()
+            response = daraja.stk_push(
+                phone_number=data['phone_number'],
+                amount=data['amount'],
+                account_reference=data['account_reference'],
+                transaction_desc=data['transaction_desc']
+            )
+
+            checkout_request_id = response.get('CheckoutRequestID', None)
+
+            user = None
+            if request.user.is_authenticated:
+                user = AppUser.objects.get(user=request.user)
+
+            if checkout_request_id:
+
+                payment = PaymentDetails.objects.create(
+                    phone_number=data['phone_number'],
+                    amount=data['amount'],
+                    account_reference=data['account_reference'],
+                    transaction_desc=data['transaction_desc'],
+                    mpesa_checkout_id=checkout_request_id,
+                    quantity= 1,
+                    type = 'payment',
+                    condition='New',
+                    price=data['amount'],
+                )
+                if user:
+                    if user.role == 'trader':
+                        payment.trader = user
+                    elif user.role == 'upcycler':
+                        payment.upcycler = user
+                    payment.save()
+
+            return Response(response)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
