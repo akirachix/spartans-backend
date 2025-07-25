@@ -6,10 +6,10 @@ from farmerLoan.models import Loan
 from users.models import User
 
 
-
 admin.site.register(CooperativePartnerBank)
 admin.site.register(Document)
 admin.site.register(FarmerWealth)
 admin.site.register(Loan)
 admin.site.register(User)
+
 

@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG =os.getenv('DEBUG', 'False').lower() in ['true','1','yes']
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ["*"]
 
 
 
-# Application definition
 
 
 INSTALLED_APPS = [
@@ -53,8 +52,7 @@ INSTALLED_APPS = [
     'farmerLoan',
     'document',
     'corsheaders',
-
-   
+     'channels',   
 ]
 
 
@@ -62,6 +60,7 @@ INSTALLED_APPS = [
 import os
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 
 
@@ -100,7 +99,17 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = 'loans.wsgi.application'
+ASGI_APPLICATION = "loans.asgi.application"
 
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
 
 
 
@@ -157,7 +166,6 @@ USE_TZ = True
 
 
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
@@ -168,7 +176,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-
+AUTH_USER_MODEL = 'users.User'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
