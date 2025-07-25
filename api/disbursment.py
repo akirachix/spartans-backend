@@ -3,9 +3,8 @@ from django.conf import settings
 from requests.auth import HTTPBasicAuth
 import base64
 import datetime
-import logging
 
-logger = logging.getLogger(__name__)
+
 
 class DarajaAPI:
     def __init__(self):
