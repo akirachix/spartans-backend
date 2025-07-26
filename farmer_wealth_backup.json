@@ -1,0 +1,1 @@
+[{"model": "farmer_wealth.farmerwealth", "pk": 1, "fields": {"user": 1, "milk_quantity": "30000000.00", "income": "3000000.00", "livestock_number": 10000}}, {"model": "farmer_wealth.farmerwealth", "pk": 2, "fields": {"user": 1, "milk_quantity": "30000000.00", "income": "3000000.00", "livestock_number": 10}}]

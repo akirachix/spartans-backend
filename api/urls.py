@@ -2,7 +2,6 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from django.conf import settings
 from django.conf.urls.static import static
-
 from rest_framework.authtoken.views import obtain_auth_token
 
 from .views import (
@@ -16,15 +15,14 @@ from .views import (
     STKPushView,
     daraja_callback,
     FarmerWealthViewSet,
-
-   
+    CreditScoreViewSet,
 )
 
-
 router = DefaultRouter()
+router.register(r'credit_score', CreditScoreViewSet, basename='credit_score')
+router.register(r'loans', LoanViewSet, basename='loans')
 router.register(r'loan_repayments', LoanRepaymentViewSet, basename="loan_repayments")
 router.register(r'documents', DocumentViewSet, basename="documents")
-router.register(r'loans', LoanViewSet, basename="loans")
 router.register(r'cooperative_partner_banks', CooperativePartnerBankViewSet, basename="bankpartners")
 router.register(r'farmer_wealth', FarmerWealthViewSet, basename="farmer_wealth")
 router.register(r'users', UserViewSet, basename="users")
@@ -39,7 +37,7 @@ urlpatterns = [
     path('', include(router.urls)),
     path('disbursement/stk-push/', STKPushView.as_view(), name='disbursement-stk-push'),
     path('disbursement/callback/', daraja_callback, name='disbursement-callback'),
-    path('auth/', include((auth_urls, 'auth'))),  
+    path('auth/', include((auth_urls, 'auth'))),
 ]
 
 if settings.DEBUG:
