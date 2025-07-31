@@ -3,6 +3,8 @@ from rest_framework.permissions import AllowAny
 from users.models import User
 from farmerLoan.models import Loan
 from farmer_wealth.models import FarmerWealth
+from rest_framework.authtoken.models import Token
+
 from .serializers import (
     FarmerWealthSerializer,
     LoanRepaymentSerializer,

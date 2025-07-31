@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'farmerLoan',
     'document',
     'corsheaders',
-   
+    'rest_framework.authtoken',
 ]
 
 
