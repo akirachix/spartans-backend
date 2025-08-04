@@ -7,6 +7,9 @@ from django.urls import reverse
 from loan_repayments.models import LoanRepayment
 from farmerLoan.models import Loan
 from django.utils import timezone
+from users.models import User
+from farmerLoan.models import LoanRepayment
+from yourapp.utils import calculate_credit_score
 
 class LoanRepaymentTests(APITestCase):
 
@@ -48,8 +51,6 @@ class LoanRepaymentTests(APITestCase):
         url = reverse('LoanRepayment-detail', args=[repayment.id])
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-
-# tests/test_models.py
 
 
 
