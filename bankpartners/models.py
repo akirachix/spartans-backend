@@ -8,7 +8,6 @@ class CooperativePartnerBank(models.Model):
     bank_account_number = models.CharField(max_length=20)
     amount_owed = models.DecimalField(max_digits=10, decimal_places=2)
     amount_paid = models.DecimalField(max_digits=10, decimal_places=2)
-    amount_disbursed = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     due_date = models.DateTimeField()
     amount_remaining = models.DecimalField(max_digits=10, decimal_places=2)
 
